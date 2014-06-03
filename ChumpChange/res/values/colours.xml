@@ -1,0 +1,12 @@
+<resources>
+
+    <color name="bg_colour">#3498db</color>
+    <color name="box_colour">#2D2D2D</color>
+    <color name="good_budget">#5CD65C</color>
+    <color name ="bad_budget">#FF1919</color>
+    <color name ="flat_budget">#FFFFFF</color>
+    <color name ="shadow">#5F5F5F</color> <!-- orange: FF6A06 -->
+    <color name ="def">#FFFFFF</color>
+    <color name ="spec">#f1c40f</color>
+
+</resources>
