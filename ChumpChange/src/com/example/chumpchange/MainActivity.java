@@ -84,9 +84,9 @@ public class MainActivity extends Activity {
 				cal2.add(Calendar.MONTH, 1);
 				String endDater = df.format(cal2.getTime());
 				
-				fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\na\na\na\n\n"
-						+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\nb\nb\nb\n\n"
-						+"Mar. 17, 2014" + "\n" + "Jun. 23, 2014" + "\n260.00\n0.00\nc\nc\nc\n\n").getBytes());
+				fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\n\n"
+						+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\n\n"
+						+"Mar. 17, 2014" + "\n" + "Jun. 23, 2014" + "\n260.00\n0.00\n\n").getBytes());
 				startDate = curDate;
 				endDate = endDater;
 				budget = 250;
@@ -172,12 +172,12 @@ public class MainActivity extends Activity {
 		            public void onClick(View view)
 		            {
 		            	String output = mEdit.getText().toString();	
-		            	
+		            	double change = Double.parseDouble(output);
 		            	if (mEdit.getText().length() != 0) {
 		            		double oldBudget = budget;
 		            		double oldSpent = spent;
-			            	budget -= Double.parseDouble(output);
-			            	spent += Double.parseDouble(output);
+			            	budget -= change;
+			            	spent += change;
 			            	
 			            	budgetOutput.setText(String.format("$%.2f", budget));
 			            	spentOutput.setText(String.format("$%.2f", spent));
@@ -199,7 +199,7 @@ public class MainActivity extends Activity {
 								Calendar cal = Calendar.getInstance();
 								SimpleDateFormat df = new SimpleDateFormat("(EEEE, MMM. dd) h:mm a", Locale.US);
 								String curDate = df.format(cal.getTime());
-								String trans = curDate + "|-" + spent;
+								String trans = curDate + "\t-$" + change;
 								
 								String[] aa = temp.split(endDate);
 								aa[1] = aa[1].replaceFirst(String.format("%.2f", oldBudget)+"\n" +
@@ -232,6 +232,8 @@ public class MainActivity extends Activity {
 			            	} else {
 			            		budgetOutput.setTextColor(getResources().getColor(R.color.bad_budget));
 			            	}
+			            	
+			            	mEdit.setText("");
 		            	}
 		            }
 		        });

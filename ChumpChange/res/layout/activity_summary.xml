@@ -255,7 +255,7 @@
 	       android:layout_width="@dimen/aug_box_width"
 	       android:layout_height="fill_parent"
 	       android:orientation="horizontal"
-	       android:layout_gravity="center" >
+	       android:layout_gravity="center_horizontal" >
 	
 	         <LinearLayout
 	             android:layout_width="@dimen/box_width"
@@ -263,7 +263,7 @@
 	             android:layout_gravity="center"
 	             android:background="@color/box_colour"
 	             android:orientation="vertical"
-	             android:padding="@dimen/sum_button_margin" >
+	             android:padding="@dimen/sum_button_margin">
 	
 	             <TextView
 	                 android:id="@+id/list"
@@ -287,7 +287,7 @@
 	                    android:layout_width="fill_parent"
 	        			android:layout_height="wrap_content"
 	         			android:orientation="vertical"
-	         			android:gravity="center">
+	         			android:layout_gravity="center_horizontal">
 	                 </LinearLayout>
 	             </ScrollView>
 	         </LinearLayout>

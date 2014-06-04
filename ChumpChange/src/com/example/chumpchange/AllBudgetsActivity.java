@@ -80,7 +80,7 @@ public class AllBudgetsActivity extends Activity {
 				text = "| Transaction #" + (buttonCount+1) + " |\n" +
 						startDate + " to " + endDate + "\n" +
 						"Budget of $" + budgetS + "\n" +
-						"Spent $" + spentS +b;
+						"Spent $" + spentS;
 				
 				//adding button info into ArrayList
 				allTrans.add(transList);
