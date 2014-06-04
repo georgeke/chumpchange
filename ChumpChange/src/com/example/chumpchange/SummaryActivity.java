@@ -20,10 +20,13 @@ public class SummaryActivity extends Activity {
 		ArrayList<String> trans = i.getStringArrayListExtra("com.example.chumpchange.Transactions");
 		
 		LinearLayout ll = (LinearLayout) findViewById(R.id.scrollingList);
+		LinearLayout left = new LinearLayout(this);
+		LinearLayout right = new LinearLayout(this);
 		
 		int size = trans.size();
 		
-		for (int a = 0  ; a < size; a++) {
+		for (int a = size-1  ; a <= 0; a++) {
+			
 			TextView t = new TextView(this);
 			t.setText(trans.get(a));
 			ll.addView(t);

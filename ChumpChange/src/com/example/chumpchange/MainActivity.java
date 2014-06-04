@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -24,24 +25,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	//xml elements
 	public TextView interval;
 	public EditText mEdit;
 	public Button mButton, payButton;
-	public static double budget = 500;
-	public double spent=0;
-	public String output;
 	public TextView budgetOutput, spentOutput;
 	
+	//stored fields
+	public static double budget = 500;
+	public double spent=0;
+	
+	//read in from txt
 	boolean first = true;
-	static String startDate;
-	static String endDate;
+	public static String startDate;
+	public static String endDate;
 	String budgetS = "";
 	String spentS = "";
 	
+	//paypal
 	private static PayPalConfiguration config = new PayPalConfiguration()
 	.environment(PayPalConfiguration.ENVIRONMENT_NO_NETWORK)
 	.clientId("ATjyUBAVbcTtBM66AFkT2tT7k06ik_eBGDCp89YRY79EptlCnsC6boIAkQhq");
@@ -74,7 +78,7 @@ public class MainActivity extends Activity {
 			if (c==-1) {
 				Calendar cal = Calendar.getInstance();
 				Calendar cal2 = Calendar.getInstance();
-				SimpleDateFormat df = new SimpleDateFormat("MMM. dd, yyyy");
+				SimpleDateFormat df = new SimpleDateFormat("MMM. dd, yyyy", Locale.US);
 				String curDate = df.format(cal.getTime());
 				
 				cal2.add(Calendar.MONTH, 1);
@@ -167,7 +171,7 @@ public class MainActivity extends Activity {
 		        {
 		            public void onClick(View view)
 		            {
-		            	output = mEdit.getText().toString();	
+		            	String output = mEdit.getText().toString();	
 		            	
 		            	if (mEdit.getText().length() != 0) {
 		            		double oldBudget = budget;
@@ -191,13 +195,20 @@ public class MainActivity extends Activity {
 								}
 								fin.close();
 								
+								//adding transaction
+								Calendar cal = Calendar.getInstance();
+								SimpleDateFormat df = new SimpleDateFormat("(EEEE, MMM. dd) h:mm a", Locale.US);
+								String curDate = df.format(cal.getTime());
+								String trans = curDate + "|-" + spent;
+								
 								String[] aa = temp.split(endDate);
 								aa[1] = aa[1].replaceFirst(String.format("%.2f", oldBudget)+"\n" +
 															String.format("%.2f", oldSpent)+"\n", "");	
 								
-								temp = aa[0] + MainActivity.endDate +"\n"+ String.format("%.2f", budget) +"\n"+
-										String.format("%.2f", spent) + aa[1];
-								
+								temp = aa[0] + MainActivity.endDate +"\n"+ String.format("%.2f", budget) +"\n"+ 
+										String.format("%.2f", spent) + "\n" +
+										trans + aa[1];
+																
 								FileOutputStream out = openFileOutput("budgets.txt", MODE_PRIVATE);
 								
 								out.write(temp.getBytes());

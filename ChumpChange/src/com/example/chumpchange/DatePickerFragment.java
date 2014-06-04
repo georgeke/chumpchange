@@ -1,16 +1,15 @@
 package com.example.chumpchange;
 
-import java.io.FileInputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.text.format.DateFormat;
 import android.widget.DatePicker;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
@@ -19,7 +18,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
 		
-        SimpleDateFormat convert = new SimpleDateFormat("MMM. dd, yyyy");
+        SimpleDateFormat convert = new SimpleDateFormat("MMM. dd, yyyy", Locale.US);
         Date endDate = null;
 		try {
 			endDate = (Date) convert.parse(MainActivity.endDate);
