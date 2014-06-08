@@ -8,8 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
@@ -19,6 +21,9 @@ import com.paypal.android.sdk.payments.PaymentActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +33,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	Context mainContext;
+	
 	//xml elements
 	public TextView interval;
 	public EditText mEdit;
@@ -60,37 +67,42 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		Intent intent = new Intent(this, PayPalService.class);
-
 	    intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-
 	    startService(intent);
+	    
+	    mainContext = this;
 
 		if (android.os.Build.VERSION.SDK_INT>8) {
 			//getActionBar().setDisplayShowHomeEnabled(false);
 		}
 		
 		try {
-			FileOutputStream fOut = openFileOutput("budgets.txt", MODE_APPEND);
+			FileOutputStream fOut = openFileOutput("budgets.txt", MODE_PRIVATE);
 			
 			FileInputStream fin = openFileInput("budgets.txt");
 			int c = fin.read();
 			
 			if (c==-1) {
+				
 				Calendar cal = Calendar.getInstance();
 				Calendar cal2 = Calendar.getInstance();
-				SimpleDateFormat df = new SimpleDateFormat("MMM. dd, yyyy", Locale.US);
+				SimpleDateFormat df = new SimpleDateFormat("MMM. dd, yyyy hh:mm a", Locale.US);
 				String curDate = df.format(cal.getTime());
-				
-				cal2.add(Calendar.MONTH, 1);
+				Message.message(this, "date: " + curDate);
+				cal2.add(Calendar.MINUTE, 1);
 				String endDater = df.format(cal2.getTime());
 				
-				fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\n\n"
-						+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\n\n"
-						+"Mar. 17, 2014" + "\n" + "Jun. 23, 2014" + "\n260.00\n0.00\n\n").getBytes());
+				fOut.write((curDate + "\n" + endDater + "\n333\n0\n\n").getBytes());
+				
+				//fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\n\n"
+				//		+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\n\n"
+				//		+"Mar. 17, 2014" + "\n" + "Jun. 23, 2014" + "\n260.00\n0.00\n\n").getBytes());
 				startDate = curDate;
 				endDate = endDater;
-				budget = 250;
+				budget = 250;			
 				fOut.close();
+				
+				setAlarm();
 			} else {
 				fOut.close();
 				int c1 = 0;	
@@ -333,5 +345,30 @@ public class MainActivity extends Activity {
 	    }
 	    resultTextView.setText(resultStr);
 
+	}
+	
+	public void setAlarm() {
+		AlarmManager intervalEndDetecter = (AlarmManager) getSystemService(ALARM_SERVICE);
+		Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat convert = new SimpleDateFormat("MMM. dd, yyyy hh:mm a", Locale.US);
+        Date endDate = null;
+		try {
+			endDate = (Date) convert.parse(MainActivity.endDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		calendar.setTime(endDate);
+		//fields for set()
+		int type = AlarmManager.RTC_WAKEUP;
+		long when = calendar.getTimeInMillis();
+		PendingIntent alarmManagerIntent;
+		
+		//fields for building alarmManagerIntent
+		Intent intervalEndIntent = new Intent(this, IntervalEndReciever.class);
+		alarmManagerIntent = PendingIntent.getBroadcast(this, 1338, intervalEndIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		intervalEndDetecter.set(type, when, alarmManagerIntent);
+		Message.message(this, "time set: " + endDate);
 	}
 }
