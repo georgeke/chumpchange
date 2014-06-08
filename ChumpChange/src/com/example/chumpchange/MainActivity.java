@@ -33,7 +33,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	Context mainContext;
+	public static Activity mainActivity;
+	
+	public String dateFormat = "MMM. dd, yyyy hh:mm ss a";
+	public static boolean alarmSet = false;
 	
 	//xml elements
 	public TextView interval;
@@ -70,7 +73,7 @@ public class MainActivity extends Activity {
 	    intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
 	    startService(intent);
 	    
-	    mainContext = this;
+	    mainActivity = this;
 
 		if (android.os.Build.VERSION.SDK_INT>8) {
 			//getActionBar().setDisplayShowHomeEnabled(false);
@@ -82,17 +85,16 @@ public class MainActivity extends Activity {
 			FileInputStream fin = openFileInput("budgets.txt");
 			int c = fin.read();
 			
-			if (c==-1) {
-				
+			if (c==-1) {				
 				Calendar cal = Calendar.getInstance();
-				Calendar cal2 = Calendar.getInstance();
-				SimpleDateFormat df = new SimpleDateFormat("MMM. dd, yyyy hh:mm a", Locale.US);
+				Calendar calEnd = Calendar.getInstance();
+				SimpleDateFormat df = new SimpleDateFormat(dateFormat, Locale.US);
 				String curDate = df.format(cal.getTime());
-				Message.message(this, "date: " + curDate);
-				cal2.add(Calendar.MINUTE, 1);
-				String endDater = df.format(cal2.getTime());
+Message.message(this, "fsd");
+				calEnd.add(Calendar.SECOND, 10);
+				String endDater = df.format(calEnd.getTime());
 				
-				fOut.write((curDate + "\n" + endDater + "\n333\n0\n\n").getBytes());
+				fOut.write((curDate + "\n" + endDater + "\n250\n0\n\n").getBytes());
 				
 				//fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\n\n"
 				//		+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\n\n"
@@ -101,8 +103,6 @@ public class MainActivity extends Activity {
 				endDate = endDater;
 				budget = 250;			
 				fOut.close();
-				
-				setAlarm();
 			} else {
 				fOut.close();
 				int c1 = 0;	
@@ -151,6 +151,10 @@ public class MainActivity extends Activity {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		if (!alarmSet) {
+			setAlarm();
 		}
 		
 		mEdit   = (EditText)findViewById(R.id.name);
@@ -350,7 +354,7 @@ public class MainActivity extends Activity {
 	public void setAlarm() {
 		AlarmManager intervalEndDetecter = (AlarmManager) getSystemService(ALARM_SERVICE);
 		Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat convert = new SimpleDateFormat("MMM. dd, yyyy hh:mm a", Locale.US);
+        SimpleDateFormat convert = new SimpleDateFormat(dateFormat, Locale.US);
         Date endDate = null;
 		try {
 			endDate = (Date) convert.parse(MainActivity.endDate);
@@ -369,6 +373,6 @@ public class MainActivity extends Activity {
 		alarmManagerIntent = PendingIntent.getBroadcast(this, 1338, intervalEndIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 		
 		intervalEndDetecter.set(type, when, alarmManagerIntent);
-		Message.message(this, "time set: " + endDate);
+		alarmSet = true;
 	}
 }

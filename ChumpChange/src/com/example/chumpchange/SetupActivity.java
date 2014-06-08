@@ -33,7 +33,7 @@ import android.widget.TextView;
 
 public class SetupActivity extends FragmentActivity {
 	
-	public static Activity a;
+	public static Activity setupActivity;
 	public static String end2;
 	public static Date end;
 	public static boolean go = false;
@@ -54,7 +54,7 @@ public class SetupActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setup);
 		
-		a=this;
+		setupActivity = this;
 		
 		budgetLabel = (TextView)findViewById(R.id.budget_label);
 		donationLabel = (TextView)findViewById(R.id.donate_label);
@@ -170,6 +170,7 @@ public class SetupActivity extends FragmentActivity {
 			
 			temp = temp.replaceFirst(MainActivity.endDate, s);
 			MainActivity.endDate = s;
+			((MainActivity) MainActivity.mainActivity).setAlarm();
 			
 			FileOutputStream out = openFileOutput("budgets.txt", MODE_PRIVATE);
 			

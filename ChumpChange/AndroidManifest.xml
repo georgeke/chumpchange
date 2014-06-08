@@ -8,6 +8,10 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+	<!-- notifications -->   
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
    <!-- for card.io card scanning -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -59,7 +63,14 @@
 		          android:configChanges="keyboardHidden|orientation" />
 		<activity android:name="io.card.payment.DataEntryActivity" />
         
-		 <receiver android:name=".IntervalEndReciever"/>
+		<receiver android:name=".IntervalEndReciever"/>
+		
+		<receiver android:name=".RebootReciever" >
+		    <intent-filter>
+		        <action
+		            android:name="android.intent.action.BOOT_COMPLETED" />
+		    </intent-filter>
+		</receiver>
 		
     </application>
 

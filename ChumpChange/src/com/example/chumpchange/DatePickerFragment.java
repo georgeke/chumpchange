@@ -47,7 +47,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     	SetupActivity.end = (Date) calendar.getTime().clone();
     	String s = (String) android.text.format.DateFormat.format("MMM. dd, yyyy", SetupActivity.end);
     	
-    	SetupActivity ss = (SetupActivity)SetupActivity.a;
+    	SetupActivity ss = (SetupActivity)SetupActivity.setupActivity;
     			
     	ss.changeDate(s);
 	}
