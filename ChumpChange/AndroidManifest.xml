@@ -40,14 +40,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:parentActivityName="com.example.chumpchange.MainActivity"
             android:name="com.example.chumpchange.AllBudgetsActivity"
             android:label="@string/all_budgets_title" >
         </activity>
         <activity
+            android:parentActivityName="com.example.chumpchange.MainActivity"
             android:name="com.example.chumpchange.SetupActivity"
             android:label="@string/title_activity_setup" >
         </activity>
         <activity
+            android:parentActivityName="com.example.chumpchange.AllBudgetsActivity"
             android:name="com.example.chumpchange.SummaryActivity"
             android:label="@string/title_activity_summary" >
         </activity>
@@ -65,12 +68,14 @@
         
 		<receiver android:name=".IntervalEndReciever"/>
 		
-		<receiver android:name=".RebootReciever" >
+		<!--  
+		<receiver android:name="RebootReciever" >
 		    <intent-filter>
-		        <action
-		            android:name="android.intent.action.BOOT_COMPLETED" />
+		        <action android:name="android.intent.action.BOOT_COMPLETED">
+      			</action>
 		    </intent-filter>
 		</receiver>
+		-->
 		
     </application>
 

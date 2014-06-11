@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -38,18 +39,23 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     }
 
 	
+	@SuppressLint("NewApi")
 	@Override
 	public void onDateSet(DatePicker view, int year, int month, int day) {
 		// TODO Auto-generated method stub
 		Calendar calendar = Calendar.getInstance();
         calendar.set(year,month,day);
 
-    	SetupActivity.end = (Date) calendar.getTime().clone();
-    	String s = (String) android.text.format.DateFormat.format("MMM. dd, yyyy", SetupActivity.end);
-    	
-    	SetupActivity ss = (SetupActivity)SetupActivity.setupActivity;
-    			
-    	ss.changeDate(s);
+        Calendar calendar2 = Calendar.getInstance();
+        
+        if (calendar.getTimeInMillis() >= calendar2.getTimeInMillis()) {
+	    	SetupActivity.end = (Date) calendar.getTime().clone();
+	    	String s = (String) android.text.format.DateFormat.format("MMM. dd, yyyy", SetupActivity.end);
+	    	
+	    	SetupActivity ss = (SetupActivity)SetupActivity.setupActivity;
+	    			
+	    	ss.changeDate(s);
+        }
 	}
 	
 }

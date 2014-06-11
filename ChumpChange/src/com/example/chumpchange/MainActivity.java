@@ -35,7 +35,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	public static Activity mainActivity;
 	
-	public String dateFormat = "MMM. dd, yyyy hh:mm ss a";
+	public String dateFormat = "MMM. dd, yyyy";
 	public static boolean alarmSet = false;
 	
 	//xml elements
@@ -45,13 +45,13 @@ public class MainActivity extends Activity {
 	public TextView budgetOutput, spentOutput;
 	
 	//stored fields
-	public static double budget = 500;
+	public static double budget = 1337.3;
 	public double spent=0;
 	
 	//read in from txt
 	boolean first = true;
-	public static String startDate;
-	public static String endDate;
+	public static String startDate = null;
+	public static String endDate = null;
 	String budgetS = "";
 	String spentS = "";
 	
@@ -80,71 +80,84 @@ public class MainActivity extends Activity {
 		}
 		
 		try {
-			FileOutputStream fOut = openFileOutput("budgets.txt", MODE_PRIVATE);
+			FileOutputStream fOut = openFileOutput("budgets.txt", MODE_APPEND);
 			
 			FileInputStream fin = openFileInput("budgets.txt");
 			int c = fin.read();
+			int c1 = 0;	
+			boolean pass = true;
 			
-			if (c==-1) {				
-				Calendar cal = Calendar.getInstance();
-				Calendar calEnd = Calendar.getInstance();
-				SimpleDateFormat df = new SimpleDateFormat(dateFormat, Locale.US);
-				String curDate = df.format(cal.getTime());
-Message.message(this, "fsd");
-				calEnd.add(Calendar.SECOND, 10);
-				String endDater = df.format(calEnd.getTime());
+			// read in if possible
+			while(c!=-1 && !(Character.toString((char)c) == null)){		
+				if (!pass) {
+					if (c != -1){
+						c1 = c;
+						c = fin.read();
+					}
+				}
+				if (((char)c=='\n' && (char)c1=='\n') || pass){
+					if (!pass) {
+						c = fin.read();
+					}
+					pass = false;
+					if (c!=-1) {
+						startDate = "";
+						while ((char)c !='\n'){
+							startDate+=Character.toString((char)c);
+							c = fin.read();
+						}
+						endDate = "";
+						while ((char)(c = fin.read())!='\n'){
+							endDate+=Character.toString((char)c);
+						}
+						budgetS = "";						
+						while (c!=-1 && (char)(c = fin.read())!='\n'){
+							budgetS+=Character.toString((char)c);
+						}
+						spentS = "";						
+						while (c!=-1 && (char)(c = fin.read())!='\n'){
+							spentS+=Character.toString((char)c);
+						}
+					}
+				}
 				
-				fOut.write((curDate + "\n" + endDater + "\n250\n0\n\n").getBytes());
+				
+			
+			}
+			
+			Calendar cal = Calendar.getInstance();
+			SimpleDateFormat df = new SimpleDateFormat(dateFormat, Locale.US);
+			String curDate = df.format(cal.getTime());	
+			
+			if (startDate == null || endDate.equals(curDate)) {
+				boolean end = false;
+				if (startDate != null && endDate.equals(curDate)) {
+					end = true;
+				}
+				
+				Calendar calEnd = Calendar.getInstance();
+				calEnd.add(Calendar.MONTH, 1);
+				String endDate = df.format(calEnd.getTime());
+				
+				fOut.write((curDate + "\n" + endDate + "\n250\n0\n\n").getBytes());
 				
 				//fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\n\n"
 				//		+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\n\n"
 				//		+"Mar. 17, 2014" + "\n" + "Jun. 23, 2014" + "\n260.00\n0.00\n\n").getBytes());
 				startDate = curDate;
-				endDate = endDater;
+				MainActivity.endDate = endDate;
 				budget = 250;			
 				fOut.close();
-			} else {
-				fOut.close();
-				int c1 = 0;	
-				boolean pass = true;
 				
-				while(c!=-1 && !(Character.toString((char)c) == null)){		
-					if (!pass) {
-						if (c != -1){
-							c1 = c;
-							c = fin.read();
-						}
-					}
-					if (((char)c=='\n' && (char)c1=='\n') || pass){
-						if (!pass) {
-							c = fin.read();
-						}
-						pass = false;
-						if (c!=-1) {
-							startDate = "";
-							while ((char)c !='\n'){
-								startDate+=Character.toString((char)c);
-								c = fin.read();
-							}
-							endDate = "";
-							while ((char)(c = fin.read())!='\n'){
-								endDate+=Character.toString((char)c);
-							}
-							budgetS = "";						
-							while (c!=-1 && (char)(c = fin.read())!='\n'){
-								budgetS+=Character.toString((char)c);
-							}
-							spentS = "";						
-							while (c!=-1 && (char)(c = fin.read())!='\n'){
-								spentS+=Character.toString((char)c);
-							}
-						}
-					}
+				if (true) {
+					Intent i = new Intent(MainActivity.this, AllBudgetsActivity.class);
+					i.putExtra("Over", true);
+					startActivity(i);
 				}
-				
 			}
 			
 			fin.close();
+			fOut.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -259,7 +272,6 @@ Message.message(this, "fsd");
 		            public void onClick(View view)
 		            {	
 		            	onDonatepressed();
-		            	//Button links to shit
 		            }
 		        });
 	}
@@ -306,7 +318,7 @@ Message.message(this, "fsd");
 	}
 
 	public void onDonatepressed() {
-	    PayPalPayment payment = new PayPalPayment(new BigDecimal("1.00"), "CAD", "Teachers Associtaion",
+	    PayPalPayment payment = new PayPalPayment(new BigDecimal("1.00"), "CAD", "",
 	            PayPalPayment.PAYMENT_INTENT_SALE);
 
 	    Intent intent = new Intent(this, PaymentActivity.class);

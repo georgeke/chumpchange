@@ -16,7 +16,7 @@
     <string name="button_id">ENTER</string>
     <string name="interval">July 8, 2013 to July 14, 2013</string>
     <string name="title_activity_all_budgets">AllBudgetsActivity</string>
-    <string name="action_settings">Settings</string>
+    <string name="main">Main Interval</string>
     <string name="hello_world">Hello world!</string>
     <string name="all_budgets_title">All Budgets</string>
     <string name="chump_change_title">Chump Change</string>

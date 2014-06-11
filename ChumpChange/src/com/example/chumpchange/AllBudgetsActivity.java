@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -36,7 +37,7 @@ public class AllBudgetsActivity extends Activity {
 			int c = 0;
 			String text = null;
 			String trans = "anything";
-			String b;
+			String b; // for testing; leave it
 			ArrayList<String> transList = new ArrayList<String>();
 			
 			while(c!=-1){
@@ -100,6 +101,12 @@ public class AllBudgetsActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		Intent i = getIntent();
+		if (i.getBooleanExtra("Over", false)) {
+			Button latest = (Button) findViewById(allTrans.size()-1);
+			latest.performClick();
+		}
 	}
 
 	@Override
@@ -134,6 +141,16 @@ public class AllBudgetsActivity extends Activity {
 		ll.addView(b);
 	}
 
-
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId()==R.id.main) {
+			Message.message(this, "fdf");
+			Intent i = new Intent(AllBudgetsActivity.this, MainActivity.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+			startActivity(i);
+			return true;
+		}
+		return true;
+	}
 }
 
