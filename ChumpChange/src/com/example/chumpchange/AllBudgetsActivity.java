@@ -23,6 +23,10 @@ public class AllBudgetsActivity extends Activity {
 	public String spentS = null;
 	public int buttonCount = 0;
 	public ArrayList<ArrayList<String>> allTrans = new ArrayList<ArrayList<String>>();
+	public ArrayList<String> allBudgets = new ArrayList<String>();
+	public ArrayList<String> allSpent = new ArrayList<String>();
+	public ArrayList<String> allEnds = new ArrayList<String>();
+	public ArrayList<String> allStarts = new ArrayList<String>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +89,10 @@ public class AllBudgetsActivity extends Activity {
 				
 				//adding button info into ArrayList
 				allTrans.add(transList);
+				allBudgets.add(budgetS);
+				allSpent.add(spentS);
+				allEnds.add(endDate);
+				allStarts.add(startDate);
 				
 				//adding button
 				newButton(lg, text);
@@ -124,18 +132,20 @@ public class AllBudgetsActivity extends Activity {
 		b.setPaddingRelative(4, 4, 4, 4);
 		b.setId(buttonCount);
 		b.setTextColor(getResources().getColor(R.color.def));
-		b.setBackgroundResource(R.color.box_colour);
+		b.setBackgroundResource(R.drawable.box_background);
 		b.setGravity(1);
 		b.setOnClickListener (
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
+						int id = v.getId();
+						
 						Intent i = new Intent(AllBudgetsActivity.this, SummaryActivity.class);
-						i.putStringArrayListExtra("com.example.chumpchange.Transactions", allTrans.get(v.getId()));
-						i.putExtra("budget", budgetS);
-						i.putExtra("spent", spentS);
-						i.putExtra("start", startDate);
-						i.putExtra("end", endDate);
+						i.putStringArrayListExtra("com.example.chumpchange.Transactions", allTrans.get(id));
+						i.putExtra("budget", allBudgets.get(id));
+						i.putExtra("spent", allSpent.get(id));
+						i.putExtra("start", allStarts.get(id));
+						i.putExtra("end", allEnds.get(id));
 						
 						startActivity(i);
 					}

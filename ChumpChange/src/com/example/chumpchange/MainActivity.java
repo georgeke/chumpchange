@@ -226,7 +226,7 @@ public class MainActivity extends Activity {
 								
 								//adding transaction
 								Calendar cal = Calendar.getInstance();
-								SimpleDateFormat df = new SimpleDateFormat("(EEEE, MMM. dd) h:mm a", Locale.US);
+								SimpleDateFormat df = new SimpleDateFormat("[MMM. dd h:mm a]", Locale.US);
 								String curDate = df.format(cal.getTime());
 								String trans = curDate + "\t-$" + change;
 								

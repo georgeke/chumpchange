@@ -23,6 +23,7 @@
     <!-- setupActivity -->
     <string name="budget_label">Set Budget</string>
     <string name="donate_label">Automatic Donations</string>
+    <string name="endDate_label">End Date</string>
     <string name="edit">Edit</string>
     
     <!-- allBudgets -->

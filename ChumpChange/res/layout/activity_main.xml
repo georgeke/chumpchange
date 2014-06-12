@@ -10,181 +10,73 @@
     android:background="@color/bg_colour"
     tools:context=".MainActivity" >
 
-    <LinearLayout
-       android:layout_width="@dimen/aug_box_width"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:layout_gravity="center" >
-	    <LinearLayout
-	        android:layout_width="@dimen/box_width"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        android:background="@color/box_colour"
-	        android:padding="@dimen/button_margin"
-	        android:layout_gravity="center" >
-	        
-		    <TextView
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:gravity="center_horizontal"
-		        android:shadowColor="#ffffff"
-		        android:singleLine="true"
-		        android:text="@string/interval"
-		        android:textColor="@color/def"
-		        android:textSize="15sp"
-		        android:id="@+id/interval" />
-	    </LinearLayout>
-	    
-	    <View
-	            android:layout_width="5dp"
-	            android:layout_height="fill_parent"
-	            android:layout_marginTop="5dp"
-	            android:background="@color/shadow"/>
-    </LinearLayout>
-    
-    <LinearLayout
-       android:layout_width="@dimen/aug_box_width"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:layout_gravity="center" >
-	    <View
-	            android:layout_width="fill_parent"
-	            android:layout_height="5dp"
-	            android:layout_marginLeft="5dp"
-	            android:background="@color/shadow"/>
-    </LinearLayout>
 
-    <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center_horizontal"
-	        android:shadowColor="#ffffff"
-	        android:singleLine="true"
-	        android:text=""
-	        android:textColor="@color/def"
-	        android:textSize="20sp"
-	        android:id="@+id/spacer1" />
-	  <LinearLayout
-       android:layout_width="@dimen/aug_box_width"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:layout_gravity="center" >    
-	    <LinearLayout
-	        android:layout_width="@dimen/box_width"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        android:background="@color/box_colour"
-	        android:layout_gravity="center"
-	        android:padding="@dimen/button_margin" >
+	<LinearLayout
+		android:layout_width="@dimen/box_width"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:background="@drawable/box_background"
+		android:padding="@dimen/button_margin"
+		android:layout_gravity="center" >
+	    
+		 <TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:shadowColor="#ffffff"
+			android:singleLine="true"
+			android:text="@string/interval"
+			android:textColor="@color/def"
+			android:textSize="15sp"
+			android:id="@+id/interval" />
+	</LinearLayout>
+	    
+	<!-- SPACE 1 -->
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:shadowColor="#ffffff"
+		android:singleLine="true"
+		android:text=""
+		android:textColor="@color/def"
+		android:textSize="@dimen/spacer"
+		android:id="@+id/spacer1" />
+    
+
+	<LinearLayout
+	    android:layout_width="@dimen/box_width"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:background="@drawable/box_background"
+	    android:layout_gravity="center"
+	    android:padding="@dimen/button_margin" >
 	
-	        <TextView
-	            android:id="@+id/budgetName"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:gravity="center_horizontal"
-	            android:shadowColor="#ffffff"
-	            android:singleLine="true"
-	            android:text="@string/budget_name"
-	            android:textColor="@color/def"
-	            android:textSize="15sp" />
-	
-	        <TextView
-	            android:id="@+id/budgetValue"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:gravity="center_horizontal"
-	            android:shadowColor="#ffffff"
-	            android:singleLine="true"
-	            android:text="@string/budget"
-	            android:textColor="@color/def"
-	            android:textSize="50sp" />
-	    </LinearLayout>
-	    <View
-	            android:layout_width="5dp"
-	            android:layout_height="fill_parent"
-	            android:layout_marginTop="5dp"
-	            android:background="@color/shadow"/>
-	    </LinearLayout>
-    
-    <LinearLayout
-       android:layout_width="@dimen/aug_box_width"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:layout_gravity="center" >
-	    <View
-	            android:layout_width="fill_parent"
-	            android:layout_height="5dp"
-	            android:layout_marginLeft="5dp"
-	            android:background="@color/shadow"/>
-    </LinearLayout>
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:shadowColor="#ffffff"
-        android:singleLine="true"
-        android:text=""
-        android:textColor="@color/def"
-        android:textSize="30sp"
-        android:id="@+id/spacer2" />
-    
-      <LinearLayout
-       android:layout_width="@dimen/aug_box_width"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:layout_gravity="center" >
-	     <LinearLayout
-	     android:layout_width="@dimen/box_width"
-	     android:layout_height="wrap_content"
-	     android:orientation="vertical"
-	     android:background="@color/box_colour"
-	     android:layout_gravity="center"
-	     android:padding="@dimen/button_margin" >
-	        
-		     <TextView
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:gravity="center_horizontal"
-		        android:shadowColor="#ffffff"
-		        android:singleLine="true"
-		        android:text="@string/spent_text"
-		        android:textColor="@color/def"
-		        android:textSize="15sp"
-		        android:id="@+id/spentName" />
+		<TextView
+			android:id="@+id/budgetName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:shadowColor="#ffffff"
+			android:singleLine="true"
+			android:text="@string/budget_name"
+			android:textColor="@color/def"
+			android:textSize="15sp" />
 		
-		    <TextView
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:gravity="center_horizontal"
-		        android:shadowColor="#ffffff"
-		        android:singleLine="true"
-		        android:text="@string/spent"
-		        android:textColor="@color/def"
-		        android:textSize="50sp"
-		        android:id="@+id/spentValue" />
-		   </LinearLayout>
-		   
-	     	    <View
-	            android:layout_width="5dp"
-	            android:layout_height="fill_parent"
-	            android:layout_marginTop="5dp"
-	            android:background="@color/shadow"/>
-	   </LinearLayout>
-	    
-        <LinearLayout
-	       android:layout_width="@dimen/aug_box_width"
-	       android:layout_height="wrap_content"
-	       android:orientation="vertical"
-	       android:layout_gravity="center" >
-	    <View
-            android:layout_width="fill_parent"
-            android:layout_height="5dp"
-            android:layout_marginLeft="5dp"
-            android:background="@color/shadow"/>
-    </LinearLayout>
-	    
-      <TextView
+		<TextView
+		    android:id="@+id/budgetValue"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center_horizontal"
+		    android:shadowColor="#ffffff"
+		    android:singleLine="true"
+		    android:text="@string/budget"
+		    android:textColor="@color/def"
+		    android:textSize="50sp" />
+	</LinearLayout>
+    
+	<!-- SPACE 2 -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -192,93 +84,108 @@
         android:singleLine="true"
         android:text=""
         android:textColor="@color/def"
-        android:textSize="30sp"
-        android:id="@+id/spacer3" />
-     
-     <LinearLayout
-       android:layout_width="@dimen/aug_box_width"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:layout_gravity="center" >
-        <LinearLayout
-		     android:layout_width="@dimen/box_width"
-		     android:layout_height="wrap_content"
-		     android:orientation="horizontal"
-		     android:background="@color/box_colour"
-		     android:layout_gravity="center"
-		     android:padding="@dimen/button_margin" >
-	    
-	        <EditText android:id="@+id/name" 
-	        	android:layout_width="0dp"
-	    		android:layout_height="wrap_content"
-	    		android:layout_weight=".7"
-	    		android:inputType="numberDecimal|numberSigned"
-	    		android:textColor="@color/def"	    		
-	    		android:textCursorDrawable="@null" /> 
-		    
-		    <Button
-	     		android:layout_height="wrap_content"
-	     		android:layout_width="wrap_content"
-	     		android:text="@string/enter"
-	     		android:id="@+id/enter_button_main"
-	     		android:textColor="@color/def" />
+        android:textSize="@dimen/spacer"
+        android:id="@+id/spacer2" />
+	
+	<LinearLayout
+		android:layout_width="@dimen/box_width"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:background="@drawable/box_background"
+		android:layout_gravity="center"
+		android:padding="@dimen/button_margin" >
+    
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:shadowColor="#ffffff"
+			android:singleLine="true"
+			android:text="@string/spent_text"
+			android:textColor="@color/def"
+			android:textSize="15sp"
+			android:id="@+id/spentName" />
 
-	    </LinearLayout>
-	    	    <View
-	            android:layout_width="5dp"
-	            android:layout_height="fill_parent"
-	            android:layout_marginTop="5dp"
-	            android:background="@color/shadow"/>
-    </LinearLayout>
-	    
-        <LinearLayout
-	       android:layout_width="@dimen/aug_box_width"
-	       android:layout_height="wrap_content"
-	       android:orientation="vertical"
-	       android:layout_gravity="center" >
-	    <View
-	            android:layout_width="fill_parent"
-	            android:layout_height="5dp"
-	            android:layout_marginLeft="5dp"
-	            android:background="@color/shadow"/>
-	    </LinearLayout>
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:shadowColor="#ffffff"
+			android:singleLine="true"
+			android:text="@string/spent"
+			android:textColor="@color/def"
+			android:textSize="50sp"
+			android:id="@+id/spentValue" />
+	</LinearLayout>
 
-        
-        
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:shadowColor="#ffffff"
-        android:singleLine="true"
-        android:text=""
-        android:textColor="@color/def"
-        android:textSize="20sp"
-        android:id="@+id/spacer4" />
-        
-        
-        
-        
-        
-        <!-- DONATE -->
+	 
+    <!-- SPACER 3 -->
+	<TextView
+	  android:layout_width="match_parent"
+	  android:layout_height="wrap_content"
+	  android:gravity="center_horizontal"
+	  android:shadowColor="#ffffff"
+	  android:singleLine="true"
+	  android:text=""
+	  android:textColor="@color/def"
+	  android:textSize="@dimen/spacer"
+	  android:id="@+id/spacer3" />    
 
-        <LinearLayout
-		     android:layout_width="@dimen/aug_box_width"
-		     android:layout_height="wrap_content"
-		     android:orientation="horizontal"
-		     android:background="@color/box_colour"
-		     android:layout_gravity="center"
-		     android:padding="@dimen/button_margin" >
+ 	<LinearLayout
+		android:layout_width="@dimen/box_width"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:background="@drawable/box_background"
+		android:layout_gravity="center"
+		android:padding="@dimen/button_margin" >
 
-		    <Button
-	     		android:layout_height="wrap_content"
-	     		android:layout_width="fill_parent"
-	     		android:text="@string/donate"
-	     		android:id="@+id/donate_button"
-	     		android:textColor="@color/spec"
-	     		android:textStyle="bold"/>	
-    </LinearLayout>
+		<EditText 
+			android:id="@+id/name"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight=".9"
+			android:inputType="numberDecimal|numberSigned"
+			android:textColor="@color/def"
+			android:textCursorDrawable="@null">
+		</EditText>
+ 
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="@string/enter"
+			android:id="@+id/enter_button_main"
+			android:textColor="@color/def" />
+	</LinearLayout>
 
-        
-        
+	<!-- SPACER 4 -->
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+
+		android:singleLine="true"
+		android:text=""
+		android:textColor="@color/def"
+		android:textSize="@dimen/spacer"
+		android:id="@+id/spacer4" />
+                 
+    <!-- DONATE -->
+
+	<LinearLayout
+	    android:layout_width="@dimen/box_width"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:background="@drawable/box_background"
+	    android:orientation="horizontal"
+	    android:padding="@dimen/button_margin" >
+
+	    <Button
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:text="@string/donate"
+			android:gravity="center"
+			android:id="@+id/donate_button"
+			android:textColor="@color/spec"
+			android:textStyle="bold"/>	
+	</LinearLayout>        
 </LinearLayout>

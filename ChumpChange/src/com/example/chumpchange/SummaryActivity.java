@@ -18,11 +18,30 @@ public class SummaryActivity extends Activity {
 
 		Intent i = getIntent();
 		
+		// setting budget, spent and intervals
 		String startDate = i.getStringExtra("start");
 		String endDate = i.getStringExtra("end");
 		String budgetS = i.getStringExtra("budget");
 		String spentS = i.getStringExtra("spent");
+		double budget = Double.parseDouble(budgetS);
 		
+		TextView sumInterval = (TextView) findViewById(R.id.sum_interval);			
+		TextView sumBudgetValue = (TextView) findViewById(R.id.sum_budget_value);				
+		TextView sumSpentValue = (TextView) findViewById(R.id.sum_spent_value);
+		
+		sumInterval.setText(startDate + " to " + endDate);
+		sumBudgetValue.setText("$"+budgetS);
+		sumSpentValue.setText("$"+spentS);
+			//color
+    	if (budget > 0) {
+    		sumBudgetValue.setTextColor(getResources().getColor(R.color.good_budget));
+    	} else if (budget == 0) {
+    		sumBudgetValue.setTextColor(getResources().getColor(R.color.flat_budget));
+    	} else {
+    		sumBudgetValue.setTextColor(getResources().getColor(R.color.bad_budget));
+    	}
+		
+		// setting transactions
 		ArrayList<String> trans = i.getStringArrayListExtra("com.example.chumpchange.Transactions");
 		int size = trans.size();
 		
