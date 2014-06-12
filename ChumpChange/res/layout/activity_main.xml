@@ -219,8 +219,8 @@
 		    <Button
 	     		android:layout_height="wrap_content"
 	     		android:layout_width="wrap_content"
-	     		android:text="@string/button_id"
-	     		android:id="@+id/button_id"
+	     		android:text="@string/enter"
+	     		android:id="@+id/enter_button_main"
 	     		android:textColor="@color/def" />
 
 	    </LinearLayout>
@@ -273,8 +273,8 @@
 		    <Button
 	     		android:layout_height="wrap_content"
 	     		android:layout_width="fill_parent"
-	     		android:text="@string/button_id3"
-	     		android:id="@+id/button_id2"
+	     		android:text="@string/donate"
+	     		android:id="@+id/donate_button"
 	     		android:textColor="@color/spec"
 	     		android:textStyle="bold"/>	
     </LinearLayout>

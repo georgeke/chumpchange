@@ -52,8 +52,8 @@
 			    <Button
 					android:layout_height="wrap_content"
 					android:layout_width="wrap_content"
-					android:text="@string/button_id"
-					android:id="@+id/enter2"
+					android:text="@string/enter"
+					android:id="@+id/enter_button_setup"
 					android:textColor="@color/def" />
 			  </LinearLayout>
 	    </LinearLayout>
@@ -125,7 +125,7 @@
 		        android:id="@+id/editDateButton"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="@string/editDateButton"
+		        android:text="@string/edit"
 		        android:textColor="@color/def" />
 			  </LinearLayout>
 	    </LinearLayout>

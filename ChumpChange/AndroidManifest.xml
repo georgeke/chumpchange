@@ -47,12 +47,12 @@
         <activity
             android:parentActivityName="com.example.chumpchange.MainActivity"
             android:name="com.example.chumpchange.SetupActivity"
-            android:label="@string/title_activity_setup" >
+            android:label="@string/setup_title" >
         </activity>
         <activity
             android:parentActivityName="com.example.chumpchange.AllBudgetsActivity"
             android:name="com.example.chumpchange.SummaryActivity"
-            android:label="@string/title_activity_summary" >
+            android:label="@string/summary_title" >
         </activity>
         
         <service android:name="com.paypal.android.sdk.payments.PayPalService"

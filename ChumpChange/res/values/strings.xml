@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- app -->
+    <string name="app_name">ChumpChange</string>    
+	<string name="chump_change_title">Chump Change</string>
+    <string name="all_budgets_title">All Budgets</string>
+    <string name="setup_title">Settings</string>
+    <string name="summary_title">Summary</string>
+    
+	<!-- mainActivity -->
 
-    <string name="app_name">ChumpChange</string>
-    <string name="edit">Edit Budget</string>
-    <string name="all">All Budgets</string>
-    <string name="budget">$500.00</string>
-    <string name="budget_name">Budget:</string>
+	<string name="interval">Jul. 8, 2000 to Aug. 14, 2001</string>
+	<string name="budget_name">Budget:</string>
+	<string name="budget">$250.00</string>
+    <string name="spent_text">Total Spent:</string>
+    <string name="spent">$0.00</string>
+    <string name="enter">Enter</string>
+    <string name="donate">DONATE!</string>
+    	<!-- menu names -->
+    <string name="menu_edit">Edit Budget</string>
+    <string name="menu_all">All Budgets</string>
+    
+    <!-- setupActivity -->
     <string name="budget_label">Set Budget</string>
     <string name="donate_label">Automatic Donations</string>
-    <string name="editDateButton">EDIT</string>
-    <string name="button_id3">DONATE!</string>
-    <string name="spent">$0.00</string>
-    <string name="spent_text">Total Spent:</string>
-    <string name="add_button">Add</string>
-    <string name="button_id">ENTER</string>
-    <string name="interval">July 8, 2013 to July 14, 2013</string>
-    <string name="title_activity_all_budgets">AllBudgetsActivity</string>
-    <string name="main">Main Interval</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="all_budgets_title">All Budgets</string>
-    <string name="chump_change_title">Chump Change</string>
-    <string name="title_activity_setup">SetupActivity</string>
-    <string name="button_id2">ENTER</string>
-    <string name="title_activity_summary">Interval Summary</string>
-    <string name="list_title">Transactions:</string>
-    <string name="change">Settings</string>
+    <string name="edit">Edit</string>
+    
+    <!-- allBudgets -->
+    <string name="menu_main">Main Interval</string>
+    
+	<!-- summaryActivity -->
+    <string name="list_title">Transactions</string>
 
 </resources>

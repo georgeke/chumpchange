@@ -81,7 +81,7 @@ public class AllBudgetsActivity extends Activity {
 				text = "| Transaction #" + (buttonCount+1) + " |\n" +
 						startDate + " to " + endDate + "\n" +
 						"Budget of $" + budgetS + "\n" +
-						"Spent $" + spentS;
+						"Spent $" + spentS + "\n" + b;
 				
 				//adding button info into ArrayList
 				allTrans.add(transList);
@@ -132,6 +132,10 @@ public class AllBudgetsActivity extends Activity {
 					public void onClick(View v) {
 						Intent i = new Intent(AllBudgetsActivity.this, SummaryActivity.class);
 						i.putStringArrayListExtra("com.example.chumpchange.Transactions", allTrans.get(v.getId()));
+						i.putExtra("budget", budgetS);
+						i.putExtra("spent", spentS);
+						i.putExtra("start", startDate);
+						i.putExtra("end", endDate);
 						
 						startActivity(i);
 					}

@@ -86,7 +86,7 @@ public class SetupActivity extends FragmentActivity {
 					}
 				});
 		//enter
-		button2 = (Button)findViewById(R.id.enter2);	
+		button2 = (Button)findViewById(R.id.enter_button_setup);	
 		button2.setOnClickListener (
 				new View.OnClickListener() {	
 					
@@ -106,14 +106,14 @@ public class SetupActivity extends FragmentActivity {
 								while( (c = fin.read()) != -1){
 								   temp = temp + Character.toString((char)c);
 								}
-	
+								Message.message(setupActivity, temp);
 								fin.close();
 								
 								String[] aa = temp.split(MainActivity.endDate);
 								aa[1] = aa[1].replaceFirst(String.format("%.2f", MainActivity.budget), 
 										String.format("%.2f", newBudgetNum));
 								temp = aa[0] + MainActivity.endDate + aa[1];
-																				
+												
 								MainActivity.budget = newBudgetNum;
 
 								FileOutputStream out = openFileOutput("budgets.txt", MODE_PRIVATE);							

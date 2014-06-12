@@ -23,7 +23,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,6 +59,7 @@ public class MainActivity extends Activity {
 	.environment(PayPalConfiguration.ENVIRONMENT_NO_NETWORK)
 	.clientId("ATjyUBAVbcTtBM66AFkT2tT7k06ik_eBGDCp89YRY79EptlCnsC6boIAkQhq");
 	
+	@SuppressWarnings("unused")
 	private static final String MY_CARDIO_APP_TOKEN = "b299ebcabb6046ad974ae0a7f3bd07b4";
 	final String TAG = getClass().getName();
 	private TextView resultTextView;
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 			boolean pass = true;
 			
 			// read in if possible
-			while(c!=-1 && !(Character.toString((char)c) == null)){		
+			while(c!=-1 && !(Character.toString((char)c) == null)){	
 				if (!pass) {
 					if (c != -1){
 						c1 = c;
@@ -110,10 +110,10 @@ public class MainActivity extends Activity {
 						while ((char)(c = fin.read())!='\n'){
 							endDate+=Character.toString((char)c);
 						}
-						budgetS = "";						
+						budgetS = "";	
 						while (c!=-1 && (char)(c = fin.read())!='\n'){
 							budgetS+=Character.toString((char)c);
-						}
+						} 
 						spentS = "";						
 						while (c!=-1 && (char)(c = fin.read())!='\n'){
 							spentS+=Character.toString((char)c);
@@ -138,8 +138,8 @@ public class MainActivity extends Activity {
 				Calendar calEnd = Calendar.getInstance();
 				calEnd.add(Calendar.MONTH, 1);
 				String endDate = df.format(calEnd.getTime());
-				
-				fOut.write((curDate + "\n" + endDate + "\n250\n0\n\n").getBytes());
+
+				fOut.write((curDate + "\n" + endDate + "\n250.00\n0.00\n\n").getBytes());
 				
 				//fOut.write(("Mar. 02, 2014" + "\n" + "Mar. 04, 2014" + "\n250.00\n0.00\n\n"
 				//		+"Mar. 04, 2014" + "\n" + "Mar. 17, 2014" + "\n250.00\n0.00\n\n"
@@ -149,7 +149,7 @@ public class MainActivity extends Activity {
 				budget = 250;			
 				fOut.close();
 				
-				if (true) {
+				if (end) {
 					Intent i = new Intent(MainActivity.this, AllBudgetsActivity.class);
 					i.putExtra("Over", true);
 					startActivity(i);
@@ -172,8 +172,8 @@ public class MainActivity extends Activity {
 		
 		mEdit   = (EditText)findViewById(R.id.name);
 		interval   = (TextView)findViewById(R.id.interval);
-		mButton = (Button)findViewById(R.id.button_id);
-		payButton = (Button)findViewById(R.id.button_id2);
+		mButton = (Button)findViewById(R.id.enter_button_main);
+		payButton = (Button)findViewById(R.id.donate_button);
 		
 		budgetOutput = (TextView)findViewById(R.id.budgetValue);
 		spentOutput = (TextView)findViewById(R.id.spentValue);

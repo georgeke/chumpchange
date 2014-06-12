@@ -17,6 +17,12 @@ public class SummaryActivity extends Activity {
 		setContentView(R.layout.activity_summary);
 
 		Intent i = getIntent();
+		
+		String startDate = i.getStringExtra("start");
+		String endDate = i.getStringExtra("end");
+		String budgetS = i.getStringExtra("budget");
+		String spentS = i.getStringExtra("spent");
+		
 		ArrayList<String> trans = i.getStringArrayListExtra("com.example.chumpchange.Transactions");
 		int size = trans.size();
 		

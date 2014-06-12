@@ -5,6 +5,6 @@
         android:id="@+id/main"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/main"/>
+        android:title="@string/menu_main"/>
 
 </menu>
