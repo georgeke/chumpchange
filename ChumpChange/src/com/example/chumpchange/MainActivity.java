@@ -289,13 +289,13 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
-	        case R.id.edit:
-	        	Intent intent = new Intent(this, SetupActivity.class);
-	        	startActivity(intent);
-	            return true;
 	        case R.id.all:
 	        	Intent intent2 = new Intent(this, AllBudgetsActivity.class);
 	        	startActivity(intent2);
+	            return true;
+	        case R.id.edit:
+	        	Intent intent = new Intent(this, SetupActivity.class);
+	        	startActivity(intent);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

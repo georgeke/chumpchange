@@ -95,7 +95,7 @@ public class SetupActivity extends FragmentActivity {
 								while( (c = fin.read()) != -1){
 								   temp = temp + Character.toString((char)c);
 								}
-								Message.message(setupActivity, temp);
+
 								fin.close();
 								
 								String[] aa = temp.split(MainActivity.endDate);
@@ -105,6 +105,8 @@ public class SetupActivity extends FragmentActivity {
 												
 								MainActivity.budget = newBudgetNum;
 
+								Message.message(setupActivity, "Budget set.");
+								
 								FileOutputStream out = openFileOutput("budgets.txt", MODE_PRIVATE);							
 								out.write(temp.getBytes());							
 								out.close();

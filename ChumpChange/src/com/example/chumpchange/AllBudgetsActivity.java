@@ -82,10 +82,10 @@ public class AllBudgetsActivity extends Activity {
 				if (c==-1) break;
 				
 				//formatting button text
-				text = "| Transaction #" + (buttonCount+1) + " |\n" +
+				text = "Interval #" + (buttonCount+1) + "\n" +
 						startDate + " to " + endDate + "\n" +
 						"Budget of $" + budgetS + "\n" +
-						"Spent $" + spentS + "\n" + b;
+						"Spent $" + spentS;
 				
 				//adding button info into ArrayList
 				allTrans.add(transList);
