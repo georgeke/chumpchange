@@ -163,7 +163,7 @@ public class AllBudgetsActivity extends Activity {
 //			startActivity(i);
 //			return true;
 //		}
-		return true;
+		return super.onOptionsItemSelected(item);
 	}
 }
 
