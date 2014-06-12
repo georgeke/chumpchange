@@ -132,7 +132,7 @@ public class AllBudgetsActivity extends Activity {
 		b.setPaddingRelative(4, 4, 4, 4);
 		b.setId(buttonCount);
 		b.setTextColor(getResources().getColor(R.color.def));
-		b.setBackgroundResource(R.drawable.box_background);
+		b.setBackgroundResource(R.drawable.box_selector);
 		b.setGravity(1);
 		b.setOnClickListener (
 				new View.OnClickListener() {
@@ -157,13 +157,12 @@ public class AllBudgetsActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId()==R.id.main) {
-			Message.message(this, "fdf");
-			Intent i = new Intent(AllBudgetsActivity.this, MainActivity.class);
-			i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-			startActivity(i);
-			return true;
-		}
+//		if (item.getItemId()==R.id.main) {
+//			Intent i = new Intent(AllBudgetsActivity.this, MainActivity.class);
+//			i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+//			startActivity(i);
+//			return true;
+//		}
 		return true;
 	}
 }

@@ -13,10 +13,9 @@
     tools:context=".SetupActivity" >
 	
 	<LinearLayout
+		style="@style/boxstyle"
 		android:layout_width="@dimen/box_width"
 		android:layout_height="wrap_content"
-		android:background="@drawable/box_background"
-		android:orientation="vertical"
 		android:padding="@dimen/button_margin" >
 		<TextView
 			android:id="@+id/budget_label"
@@ -29,7 +28,6 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:background="@color/box_colour"
 			android:orientation="horizontal"
 			android:padding="@dimen/button_margin" >
 		
@@ -58,7 +56,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:shadowColor="#ffffff"
         android:singleLine="true"
         android:text=""
         android:textColor="@color/def"
@@ -67,12 +64,11 @@
 	  
 	
 	<!-- DATE BUTTON -->
-    <LinearLayout
-        android:layout_width="@dimen/box_width"
-        android:layout_height="wrap_content"
-        android:background="@drawable/box_background"
-        android:orientation="vertical"
-        android:padding="@dimen/button_margin" >
+	<LinearLayout
+		style="@style/boxstyle"
+		android:layout_width="@dimen/box_width"
+		android:layout_height="wrap_content"
+		android:padding="@dimen/button_margin" >
 	    <TextView
 	        android:id="@+id/date_label"
 	        android:layout_width="wrap_content"
@@ -84,7 +80,6 @@
 	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:background="@color/box_colour"
 	        android:orientation="horizontal"
 	        android:padding="@dimen/button_margin" >
 		<TextView
@@ -121,10 +116,9 @@
     <!-- DONATE -->
 
 	<LinearLayout
+		style="@style/boxstyle"
 		android:layout_width="@dimen/box_width"
 		android:layout_height="wrap_content"
-		android:background="@drawable/box_background"
-		android:orientation="vertical"
 		android:padding="@dimen/button_margin" >
 		<TextView
 			android:id="@+id/donate_label"
@@ -137,7 +131,6 @@
 		<LinearLayout
 			android:layout_width="@dimen/box_width"
 			android:layout_height="wrap_content"
-			android:background="@color/box_colour"
 			android:orientation="horizontal"
 			android:padding="@dimen/button_margin" >
 	

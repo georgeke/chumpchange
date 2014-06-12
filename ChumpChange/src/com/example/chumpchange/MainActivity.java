@@ -198,7 +198,8 @@ public class MainActivity extends Activity {
 		mButton.setOnClickListener(
 		        new View.OnClickListener()
 		        {
-		            public void onClick(View view)
+		            @Override
+					public void onClick(View view)
 		            {
 		            	String output = mEdit.getText().toString();	
 		            	double change = Double.parseDouble(output);
@@ -269,7 +270,8 @@ public class MainActivity extends Activity {
 		payButton.setOnClickListener(
 		        new View.OnClickListener()
 		        {
-		            public void onClick(View view)
+		            @Override
+					public void onClick(View view)
 		            {	
 		            	onDonatepressed();
 		            }
@@ -369,7 +371,7 @@ public class MainActivity extends Activity {
         SimpleDateFormat convert = new SimpleDateFormat(dateFormat, Locale.US);
         Date endDate = null;
 		try {
-			endDate = (Date) convert.parse(MainActivity.endDate);
+			endDate = convert.parse(MainActivity.endDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

@@ -8,9 +8,10 @@
     
 	<dimen name="sum_button_margin">10dp</dimen>
 	<dimen name="sum_box_width">100dp</dimen>
+	<dimen name="trans_width">315dp</dimen>
 	
 	<dimen name="box_radius">7.5dp</dimen>
-	<dimen name="shadow_offset">3.5dp</dimen>
+	<dimen name="box_padding">10dp</dimen>
 	<dimen name="spacer">24sp</dimen>
 	<dimen name="sum_spacer">20sp</dimen>
 	

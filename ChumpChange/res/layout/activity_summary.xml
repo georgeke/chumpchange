@@ -12,12 +12,10 @@
 
 	<!-- dates -->
 	<LinearLayout
-		android:layout_width="@dimen/box_width"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		android:background="@drawable/box_background"
-		android:orientation="vertical"
-		android:padding="@dimen/sum_button_margin" >
+	    style="@style/boxstyle"
+	    android:layout_width="@dimen/box_width"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/sum_button_margin" >
 
 	<TextView
 			android:id="@+id/sum_interval"
@@ -48,13 +46,11 @@
 		android:layout_gravity="center" > 
 
 		<LinearLayout
+			style="@style/boxstyle"
 			android:layout_width="@dimen/sum_box_width"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:background="@drawable/box_background"
-			android:layout_gravity="center"
 			android:padding="@dimen/sum_button_margin" >
-			
+		
 			<TextView
 				android:id="@+id/sum_budget_name"
 				android:layout_width="match_parent"
@@ -83,11 +79,9 @@
 			android:background="@color/bg_colour"/>	       
 
 		<LinearLayout
+			style="@style/boxstyle"
 			android:layout_width="@dimen/sum_box_width"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:background="@drawable/box_background"
-			android:layout_gravity="center"
 			android:padding="@dimen/sum_button_margin" >
 	   
 			<TextView
@@ -123,12 +117,10 @@
 		android:textSize="@dimen/spacer" />
 
 	<LinearLayout
-		android:layout_width="300dp"
+		style="@style/boxstyle"
+		android:layout_width="@dimen/trans_width"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		android:background="@drawable/box_background"
-		android:orientation="vertical"
-		android:padding="@dimen/sum_button_margin">
+		android:padding="@dimen/sum_button_margin" >
 	
 		<TextView
 			android:id="@+id/list"
@@ -153,7 +145,7 @@
 		android:layout_height="wrap_content"
 		android:padding="18dp"
 		android:clipToPadding="false"
-		android:background="@color/shadow">
+		android:background="@drawable/box_clicked">
 			<LinearLayout
 				android:id="@+id/scrollingList"
 				android:layout_width="fill_parent"

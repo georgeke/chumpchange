@@ -10,20 +10,16 @@
     android:background="@color/bg_colour"
     tools:context=".MainActivity" >
 
-
 	<LinearLayout
-		android:layout_width="@dimen/box_width"
-		android:layout_height="wrap_content"
-		android:orientation="vertical"
-		android:background="@drawable/box_background"
-		android:padding="@dimen/button_margin"
-		android:layout_gravity="center" >
+	    style="@style/boxstyle"
+	    android:layout_width="@dimen/box_width"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/button_margin" >
 	    
 		 <TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:shadowColor="#ffffff"
 			android:singleLine="true"
 			android:text="@string/interval"
 			android:textColor="@color/def"
@@ -36,20 +32,16 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="center_horizontal"
-		android:shadowColor="#ffffff"
 		android:singleLine="true"
 		android:text=""
 		android:textColor="@color/def"
 		android:textSize="@dimen/spacer"
 		android:id="@+id/spacer1" />
     
-
 	<LinearLayout
+	    style="@style/boxstyle"
 	    android:layout_width="@dimen/box_width"
 	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:background="@drawable/box_background"
-	    android:layout_gravity="center"
 	    android:padding="@dimen/button_margin" >
 	
 		<TextView
@@ -57,7 +49,6 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:shadowColor="#ffffff"
 			android:singleLine="true"
 			android:text="@string/budget_name"
 			android:textColor="@color/def"
@@ -80,7 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:shadowColor="#ffffff"
         android:singleLine="true"
         android:text=""
         android:textColor="@color/def"
@@ -88,18 +78,15 @@
         android:id="@+id/spacer2" />
 	
 	<LinearLayout
-		android:layout_width="@dimen/box_width"
-		android:layout_height="wrap_content"
-		android:orientation="vertical"
-		android:background="@drawable/box_background"
-		android:layout_gravity="center"
-		android:padding="@dimen/button_margin" >
+	    style="@style/boxstyle"
+	    android:layout_width="@dimen/box_width"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/button_margin" >
     
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:shadowColor="#ffffff"
 			android:singleLine="true"
 			android:text="@string/spent_text"
 			android:textColor="@color/def"
@@ -110,7 +97,6 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:shadowColor="#ffffff"
 			android:singleLine="true"
 			android:text="@string/spent"
 			android:textColor="@color/def"
@@ -124,20 +110,18 @@
 	  android:layout_width="match_parent"
 	  android:layout_height="wrap_content"
 	  android:gravity="center_horizontal"
-	  android:shadowColor="#ffffff"
 	  android:singleLine="true"
 	  android:text=""
 	  android:textColor="@color/def"
 	  android:textSize="@dimen/spacer"
 	  android:id="@+id/spacer3" />    
 
- 	<LinearLayout
-		android:layout_width="@dimen/box_width"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:background="@drawable/box_background"
-		android:layout_gravity="center"
-		android:padding="@dimen/button_margin" >
+	<LinearLayout
+	    style="@style/boxstyle"
+	    android:layout_width="@dimen/box_width"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/button_margin"
+	    android:orientation="horizontal" >
 
 		<EditText 
 			android:id="@+id/name"
@@ -162,7 +146,6 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="center_horizontal"
-
 		android:singleLine="true"
 		android:text=""
 		android:textColor="@color/def"
@@ -172,12 +155,10 @@
     <!-- DONATE -->
 
 	<LinearLayout
-	    android:layout_width="@dimen/box_width"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center"
-	    android:background="@drawable/box_background"
-	    android:orientation="horizontal"
-	    android:padding="@dimen/button_margin" >
+		style="@style/boxstyle"
+		android:layout_width="@dimen/box_width"
+		android:layout_height="wrap_content"
+		android:padding="@dimen/button_margin" >
 
 	    <Button
 			android:layout_height="wrap_content"

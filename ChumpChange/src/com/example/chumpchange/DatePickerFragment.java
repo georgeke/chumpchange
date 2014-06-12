@@ -22,7 +22,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         SimpleDateFormat convert = new SimpleDateFormat("MMM. dd, yyyy", Locale.US);
         Date endDate = null;
 		try {
-			endDate = (Date) convert.parse(MainActivity.endDate);
+			endDate = convert.parse(MainActivity.endDate);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
