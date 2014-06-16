@@ -201,9 +201,9 @@ public class MainActivity extends Activity {
 		            @Override
 					public void onClick(View view)
 		            {
-		            	String output = mEdit.getText().toString();	
-		            	double change = Double.parseDouble(output);
+		            	String output = mEdit.getText().toString();		            	
 		            	if (mEdit.getText().length() != 0) {
+		            		double change = Double.parseDouble(output);
 		            		double oldBudget = budget;
 		            		double oldSpent = spent;
 			            	budget -= change;
@@ -273,7 +273,7 @@ public class MainActivity extends Activity {
 		            @Override
 					public void onClick(View view)
 		            {	
-		            	onDonatepressed();
+		            	onDonatePressed();
 		            }
 		        });
 	}
@@ -319,8 +319,8 @@ public class MainActivity extends Activity {
 	    super.onDestroy();
 	}
 
-	public void onDonatepressed() {
-	    PayPalPayment payment = new PayPalPayment(new BigDecimal("1.00"), "CAD", "",
+	public void onDonatePressed() {
+	    PayPalPayment payment = new PayPalPayment(new BigDecimal("1.00"), "CAD", "Donation of:",
 	            PayPalPayment.PAYMENT_INTENT_SALE);
 
 	    Intent intent = new Intent(this, PaymentActivity.class);

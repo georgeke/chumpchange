@@ -145,7 +145,8 @@
 		android:layout_height="wrap_content"
 		android:padding="18dp"
 		android:clipToPadding="false"
-		android:background="@drawable/box_clicked">
+		android:background="@drawable/box_clicked"
+		android:scrollbars="none">
 			<LinearLayout
 				android:id="@+id/scrollingList"
 				android:layout_width="fill_parent"

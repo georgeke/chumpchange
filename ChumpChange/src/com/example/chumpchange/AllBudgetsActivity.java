@@ -41,6 +41,7 @@ public class AllBudgetsActivity extends Activity {
 			int c = 0;
 			String text = null;
 			String trans = "anything";
+			@SuppressWarnings("unused")
 			String b; // for testing; leave it
 			ArrayList<String> transList = new ArrayList<String>();
 			

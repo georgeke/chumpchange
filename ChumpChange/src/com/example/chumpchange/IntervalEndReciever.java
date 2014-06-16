@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.support.v4.app.NotificationCompat;
+import android.view.WindowManager;
 
 public class IntervalEndReciever extends BroadcastReceiver {
 
@@ -33,7 +34,7 @@ public class IntervalEndReciever extends BroadcastReceiver {
 		mBuilder.setContentIntent(pi);
 		
 		PowerManager pm = (PowerManager) c.getSystemService(Context.POWER_SERVICE);
-		WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "jiggy");
+		WakeLock wl = pm.newWakeLock(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | PowerManager.ACQUIRE_CAUSES_WAKEUP, "jiggy");
 		wl.acquire(2*1000);
 		
 		NotificationManager notifM = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);	

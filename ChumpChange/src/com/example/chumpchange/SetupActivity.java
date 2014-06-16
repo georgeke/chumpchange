@@ -1,6 +1,5 @@
 package com.example.chumpchange;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 import java.io.FileInputStream;
@@ -55,7 +54,7 @@ public class SetupActivity extends FragmentActivity {
 		LinearLayout l = (LinearLayout)findViewById(R.id.main_activity);
 		l.setOrientation(LinearLayout.VERTICAL);
 		
-		DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+		//DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
 		//String currentDateTimeString = dateFormat.format(new Date());
 				
 		//l.addView(startOutput);
@@ -125,7 +124,7 @@ public class SetupActivity extends FragmentActivity {
 		buttonNo = new RadioButton(getApplicationContext());
 		if (buttonYes.isSelected()){
 			autoDonate = true;
-		}else{
+		}else if (buttonNo.isSelected()){
 			autoDonate = false;
 		}
 		
