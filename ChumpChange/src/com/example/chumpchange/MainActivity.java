@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+	
 		Intent intent = new Intent(this, PayPalService.class);
 	    intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
 	    startService(intent);
@@ -159,17 +159,11 @@ public class MainActivity extends Activity {
 			fin.close();
 			fOut.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		if (!alarmSet) {
-			setAlarm();
-		}
-		
+				
 		mEdit   = (EditText)findViewById(R.id.name);
 		interval   = (TextView)findViewById(R.id.interval);
 		mButton = (Button)findViewById(R.id.enter_button_main);
@@ -229,7 +223,7 @@ public class MainActivity extends Activity {
 								Calendar cal = Calendar.getInstance();
 								SimpleDateFormat df = new SimpleDateFormat("[MMM. dd h:mm a]", Locale.US);
 								String curDate = df.format(cal.getTime());
-								String trans = curDate + "\t-$" + change;
+								String trans = curDate + "    $" + change;
 								
 								String[] aa = temp.split(endDate);
 								aa[1] = aa[1].replaceFirst(String.format("%.2f", oldBudget)+"\n" +
@@ -304,13 +298,18 @@ public class MainActivity extends Activity {
 	
 	@Override
 	protected void onRestart() {
-
-	    // TODO Auto-generated method stub
 	    super.onRestart();
 	    Intent i = new Intent(MainActivity.this, MainActivity.class);  //your class
 	    startActivity(i);
 	    finish();
-
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (!alarmSet) {
+			setAlarm();
+		}
 	}
 	
 	@Override
@@ -375,7 +374,7 @@ public class MainActivity extends Activity {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		calendar.setTime(endDate);
 		//fields for set()
 		int type = AlarmManager.RTC_WAKEUP;

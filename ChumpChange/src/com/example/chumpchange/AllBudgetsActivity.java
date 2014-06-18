@@ -113,7 +113,7 @@ public class AllBudgetsActivity extends Activity {
 		
 		Intent i = getIntent();
 		if (i.getBooleanExtra("Over", false)) {
-			Button latest = (Button) findViewById(allTrans.size()-1);
+			Button latest = (Button) findViewById(allTrans.size()-2);
 			latest.performClick();
 		}
 	}

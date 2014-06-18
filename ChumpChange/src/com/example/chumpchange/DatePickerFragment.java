@@ -44,7 +44,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 	public void onDateSet(DatePicker view, int year, int month, int day) {
 		// TODO Auto-generated method stub
 		Calendar calendar = Calendar.getInstance();
-        calendar.set(year,month,day);
+        calendar.set(year, month, day, 0, 0, 0);
 
         Calendar calendar2 = Calendar.getInstance();
         

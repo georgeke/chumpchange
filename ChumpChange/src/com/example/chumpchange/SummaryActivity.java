@@ -56,6 +56,7 @@ public class SummaryActivity extends Activity {
 		for (int a = size-1  ; a >= 0; a--) {	
 			TextView t = new TextView(this);
 			t.setText(trans.get(a));
+			t.setTextSize(19);
 			ll.addView(t);
 			
 			/*
